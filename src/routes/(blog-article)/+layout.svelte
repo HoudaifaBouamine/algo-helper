@@ -9,6 +9,8 @@
 	import RelatedPosts from '$lib/components/organisms/RelatedPosts.svelte';
 	import Image from '$lib/components/atoms/Image.svelte';
 
+	import {allPosts} from '$lib/data/blog-posts/index';
+
 	export let data: { post: BlogPost };
 	$: ({ post } = data);
 
@@ -22,6 +24,8 @@
 			metaKeywords = post.keywords.concat(metaKeywords);
 		}
 	}
+	let reverse = allPosts;
+	reverse.reverse();
 </script>
 
 <svelte:head>
@@ -46,56 +50,70 @@
 
 <div class="article-layout">
 	<Header showBackground />
+	<div class="main-container">
 
+		
+		<nav class="min-w-[200px] w-[300px] p-2 border-r-2 border-primary">
+		{#each reverse as p}
+			<a href="{siteBaseUrl}{p.slug}" class="flex text-[14px] mt-1 border-b-2 border-primary w-full h-5 overflow-hidden" >{p.title}</a>
+		{/each}
+		
+		</nav>
 	<main>
 		<article id="article-content">
 			<div class="header">
 				{#if post}
-					<h1>{post.title}</h1>
+			<h1>{post.title}</h1>
 					<div class="note">Published on {dateformat(post.date, 'UTC:dd mmmm yyyy')}</div>
 					{#if post.updated}
 						<div class="note">Updated on {dateformat(post.updated, 'UTC:dd mmmm yyyy')}</div>
 					{/if}
-					{#if post.readingTime}
+				{#if post.readingTime}
 						<div class="note">{post.readingTime}</div>
 					{/if}
 					{#if post.tags?.length}
 						<div class="tags">
 							{#each post.tags as tag}
-								<Tag>{tag}</Tag>
-							{/each}
-						</div>
-					{/if}
-				{/if}
-			</div>
+						<Tag>{tag}</Tag>
+					{/each}
+				</div>
+			{/if}
+		{/if}
+	</div>
 			{#if post && post.coverImage}
 				<div class="cover-image">
 					<Image src={post.coverImage} alt={post.title} />
 				</div>
 			{/if}
-			<div class="content">
-				<slot />
-			</div>
-		</article>
+		<div class="content">
+			<slot />
+		</div>
+	</article>
 
-		{#if post.relatedPosts && post.relatedPosts.length > 0}
-			<div class="container">
-				<RelatedPosts posts={post.relatedPosts} />
+{#if post.relatedPosts && post.relatedPosts.length > 0}
+<div class="container">
+	<RelatedPosts posts={post.relatedPosts} />
 			</div>
 		{/if}
 	</main>
+	</div>
 
-	<Footer />
+<Footer />
 </div>
 
 <style lang="scss">
 	@import '$lib/scss/_mixins.scss';
 
+	.main-container
+	{
+		display: flex;
+	}
+
 	.article-layout {
 		--body-background-color: var(--color--post-page-background);
 		background-color: var(--color--post-page-background);
-	}
-
+		}
+		
 	#article-content {
 		--main-column-width: 65ch;
 		position: relative;
