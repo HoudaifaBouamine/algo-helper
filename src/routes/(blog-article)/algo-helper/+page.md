@@ -13,4 +13,4 @@ type: default
 
 # Introduction
 
-Hello ESI-SBA students, this website supposed to be a helper for you to learn Algorithms, data structures and learn how to apply it, merge the maths into your code, and other stuff.
+Hello ESI-SBA students, this website supposed to be a helper for you to learn Algorithms & data structures, by re-structuering the TDs, TPs on more begginer friendly way
