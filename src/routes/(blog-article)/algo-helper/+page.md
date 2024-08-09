@@ -1,5 +1,6 @@
 ---
 title: Algo Helper, for ESI-SBA students
+goal: Introduction to the Algo Helper
 slug: algo-helper
 coverImage: ''
 excerpt: ''
@@ -13,4 +14,4 @@ type: default
 
 # Introduction
 
-Hello ESI-SBA students, this website supposed to be a helper for you to learn Algorithms & data structures, by re-structuering the TDs, TPs on more begginer friendly way
+Hello ESI-SBA students! Welcome to a resource designed to help you master Algorithms & Data Structures. This website re-organizes your TDs and TPs into a more beginner-friendly format, closely following the school curriculum. We use the Pascal programming language and focus on gradually increasing problem difficulty to make learning more accessible and structured. Instead of the random difficulty levels you may find in your TDs and TPs, here you'll encounter carefully crafted exercises that build your understanding step by step.

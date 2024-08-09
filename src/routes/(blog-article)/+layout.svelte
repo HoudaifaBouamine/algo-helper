@@ -10,6 +10,7 @@
 	import Image from '$lib/components/atoms/Image.svelte';
 
 	import {allPosts} from '$lib/data/blog-posts/index';
+	import { Value } from 'sass';
 
 	export let data: { post: BlogPost };
 	$: ({ post } = data);
@@ -25,7 +26,9 @@
 		}
 	}
 	let reverse = allPosts;
-	reverse.reverse();
+	reverse.sort((a,b)=>a.title > b.title ? 1 : -1);
+
+	let showNav=true;
 </script>
 
 <svelte:head>
@@ -46,28 +49,35 @@
 			<meta name="twitter:image" content="{siteBaseUrl}{post.coverImage}" />
 		{/if}
 	{/if}
+	
 </svelte:head>
 
 <div class="article-layout">
 	<Header showBackground />
 	<div class="main-container">
 
-		
-		<nav class="min-w-[200px] w-[300px] p-2 border-r-2 border-primary">
-		{#each reverse as p}
-			<a href="{siteBaseUrl}{p.slug}" class="flex text-[14px] mt-1 border-b-2 border-primary w-full h-5 overflow-hidden" >{p.title}</a>
-		{/each}
-		
-		</nav>
+		<div>
+
+			<button on:click={()=>showNav = !showNav} class="text-red-500 w-3 h-3">X</button>
+			<nav class="{showNav?'min-w-[200px] w-[300px] p-2 border-r-2 border-primary':'w-0 p-0 border-r-0'}">
+	
+				{#if showNav}
+					{#each reverse as p}
+						<a href="{siteBaseUrl}{p.slug}" class="flex text-[14px] mt-1 border-b-2 border-primary w-full h-5 overflow-hidden" >{p.title.split(' - ')[2]?? p.title}</a>
+					{/each}
+				{/if}
+				
+			</nav>
+		</div>
 	<main>
 		<article id="article-content">
 			<div class="header">
 				{#if post}
 			<h1>{post.title}</h1>
-					<div class="note">Published on {dateformat(post.date, 'UTC:dd mmmm yyyy')}</div>
+					<!-- <div class="note">Published on {dateformat(post.date, 'UTC:dd mmmm yyyy')}</div>
 					{#if post.updated}
 						<div class="note">Updated on {dateformat(post.updated, 'UTC:dd mmmm yyyy')}</div>
-					{/if}
+					{/if} -->
 				{#if post.readingTime}
 						<div class="note">{post.readingTime}</div>
 					{/if}

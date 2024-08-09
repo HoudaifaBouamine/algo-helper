@@ -1,5 +1,6 @@
 ---
-title: '003 - Learn how to use variables'
+title: 'Week #01 - Problem #03 - Use variables'
+goal: Learn how to use variables
 slug: learn-how-to-use-variables
 coverImage: ''
 excerpt: ''
