@@ -9,8 +9,7 @@
 	import RelatedPosts from '$lib/components/organisms/RelatedPosts.svelte';
 	import Image from '$lib/components/atoms/Image.svelte';
 
-	import {allPosts} from '$lib/data/blog-posts/index';
-	import { Value } from 'sass';
+	import { allPosts } from '$lib/data/blog-posts/index';
 
 	export let data: { post: BlogPost };
 	$: ({ post } = data);
@@ -26,9 +25,9 @@
 		}
 	}
 	let reverse = allPosts;
-	reverse.sort((a,b)=>a.title > b.title ? 1 : -1);
+	reverse.sort((a, b) => (a.title > b.title ? 1 : -1));
 
-	let showNav=true;
+	let showNav = true;
 </script>
 
 <svelte:head>
@@ -49,81 +48,83 @@
 			<meta name="twitter:image" content="{siteBaseUrl}{post.coverImage}" />
 		{/if}
 	{/if}
-	
 </svelte:head>
 
 <div class="article-layout">
 	<Header showBackground />
 	<div class="main-container">
-
 		<div>
-
-			<button on:click={()=>showNav = !showNav} class="text-red-500 w-3 h-3">X</button>
-			<nav class="{showNav?'min-w-[200px] w-[300px] p-2 border-r-2 border-primary':'w-0 p-0 border-r-0'}">
-	
+			<button on:click={() => (showNav = !showNav)} class="text-red-500 w-3 h-3">X</button>
+			<nav
+				class={showNav
+					? 'min-w-[200px] w-[300px] p-2 border-r-2 border-primary'
+					: 'w-0 p-0 border-r-0'}
+			>
 				{#if showNav}
 					{#each reverse as p}
-						<a href="{siteBaseUrl}{p.slug}" class="flex text-[14px] mt-1 border-b-2 border-primary w-full h-5 overflow-hidden" >{p.title.split(' - ')[2]?? p.title}</a>
+						<a
+							href="{siteBaseUrl}{p.slug}"
+							class="flex text-[14px] mt-1 border-b-2 border-primary w-full h-5 overflow-hidden"
+							>{p.title.split(' - ')[2] ?? p.title}</a
+						>
 					{/each}
 				{/if}
-				
 			</nav>
 		</div>
-	<main>
-		<article id="article-content">
-			<div class="header">
-				{#if post}
-			<h1>{post.title}</h1>
-					<!-- <div class="note">Published on {dateformat(post.date, 'UTC:dd mmmm yyyy')}</div>
+		<main>
+			<article id="article-content">
+				<div class="header">
+					{#if post}
+						<h1>{post.title}</h1>
+						<!-- <div class="note">Published on {dateformat(post.date, 'UTC:dd mmmm yyyy')}</div>
 					{#if post.updated}
 						<div class="note">Updated on {dateformat(post.updated, 'UTC:dd mmmm yyyy')}</div>
 					{/if} -->
-				{#if post.readingTime}
-						<div class="note">{post.readingTime}</div>
+						{#if post.readingTime}
+							<div class="note">{post.readingTime}</div>
+						{/if}
+						{#if post.tags?.length}
+							<div class="tags">
+								{#each post.tags as tag}
+									<Tag>{tag}</Tag>
+								{/each}
+							</div>
+						{/if}
 					{/if}
-					{#if post.tags?.length}
-						<div class="tags">
-							{#each post.tags as tag}
-						<Tag>{tag}</Tag>
-					{/each}
+				</div>
+				{#if post && post.coverImage}
+					<div class="cover-image">
+						<Image src={post.coverImage} alt={post.title} />
+					</div>
+				{/if}
+				<div class="content">
+					<slot />
+				</div>
+			</article>
+
+			{#if post.relatedPosts && post.relatedPosts.length > 0}
+				<div class="container">
+					<RelatedPosts posts={post.relatedPosts} />
 				</div>
 			{/if}
-		{/if}
-	</div>
-			{#if post && post.coverImage}
-				<div class="cover-image">
-					<Image src={post.coverImage} alt={post.title} />
-				</div>
-			{/if}
-		<div class="content">
-			<slot />
-		</div>
-	</article>
-
-{#if post.relatedPosts && post.relatedPosts.length > 0}
-<div class="container">
-	<RelatedPosts posts={post.relatedPosts} />
-			</div>
-		{/if}
-	</main>
+		</main>
 	</div>
 
-<Footer />
+	<Footer />
 </div>
 
 <style lang="scss">
 	@import '$lib/scss/_mixins.scss';
 
-	.main-container
-	{
+	.main-container {
 		display: flex;
 	}
 
 	.article-layout {
 		--body-background-color: var(--color--post-page-background);
 		background-color: var(--color--post-page-background);
-		}
-		
+	}
+
 	#article-content {
 		--main-column-width: 65ch;
 		position: relative;
