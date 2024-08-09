@@ -49,8 +49,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-node": "next",
-		"@sveltejs/kit": "next",
 		"@fontsource/inter": "^4.5.15",
 		"@fontsource/merriweather": "^4.5.14",
 		"@fontsource/ubuntu-mono": "^4.5.11"
