@@ -2,13 +2,13 @@
 // So they can be added as suffixes on different pages
 // Via <svelte:head>
 
-export const siteBaseUrl = 'http://localhost:5173/';
+export const siteBaseUrl = 'https://algo-helper-gamma.vercel.app/';
 
-export const keywords = ['Svelte', 'SvelteKit', 'Template', 'Blog', 'Starter', 'Static Site'];
+export const keywords = ['ESI-SBA', 'ESI', 'ESI SBA', 'Algo', 'Algorithms', '1 CP'];
 
 export const description =
-	'A light, neat, and easy-to-use SvelteKit template for your next website.';
+	'Algo Helper, for ESI-SBA students, is a set of Algo & DS problems, designed to help you master Algorithms & Data Structures.';
 
-export const title = 'SvelteKit Static Blog Template';
+export const title = 'Algo Helper | ESI-SBA';
 
-export const image = `${siteBaseUrl}/images/site-preview.png`;
+export const image = `${siteBaseUrl}/images/site-preview.jpg`;
