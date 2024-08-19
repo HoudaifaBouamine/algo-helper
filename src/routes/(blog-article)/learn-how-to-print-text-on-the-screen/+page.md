@@ -47,3 +47,14 @@ Hello Computer Sience !!!
 ```
 
 </CodeBlock>
+
+### Explanation
+
+Pascal program structure start with 'program' followed by the name of the program,
+
+then you find the 'begin' and 'end' keywords, which represent the starting point of the program execution and the end of it (simply, when you run the program, it will start executing from the first line of code between 'begin' and 'end' and the program will terminate when the last line of code before the 'end' is executed).
+
+### Notice 
+ - You must add the '.' (dot) after the 'end'
+ - You must add the ';' (semicolon) after each instruction
+

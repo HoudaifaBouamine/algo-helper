@@ -75,7 +75,13 @@ Google Is My Best Friend
 
 ### Note
 
-The spicial letter '\n' means "go to the next line".
+The special character '\n' means "go to the next line", 
+
+And yes, it is a 'character' even if it contains actually 2 characters.'\' and 'n' because it represent a single byte on the ASCII table, 
+
+The 'new line' can be written as a binary number, but it can not be written as a character, because logically speaking, if it is writeable, when print it, will it jump the line or just print that character?, 
+
+So simply they choose the '\' as the special character that give another meaning to the next letter (eg '\n' for new line, '\b' for backspace, '\t' for tab') it called 'escape character', (see __<a href="https://www.ibm.com/docs/it/ssw_ibm_i_73/rzarg/escape.htm" target="_blank">this</a>__ for more)
 
 ---
 
