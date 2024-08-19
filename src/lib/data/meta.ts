@@ -4,6 +4,8 @@
 
 export const siteBaseUrl = 'https://algo-helper-gamma.vercel.app/';
 
+// export const siteBaseUrl = 'http://localhost:5173/';
+
 export const keywords = [
 	'ESI-SBA',
 	'ESI',
