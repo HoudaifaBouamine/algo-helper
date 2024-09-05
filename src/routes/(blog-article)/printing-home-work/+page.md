@@ -1,6 +1,7 @@
 ---
-title: 'Week #01 - Problem #03 - Print Your Information'
 goal: Get More Familiar With Output Functions, and Pascal in general
+title: 'Week #01 - Problem #03 - Print Your Information'
+details: 'familiarize them with output functions, printing some personal info, we will have another version of this problem later with variables'
 slug: printing-home-work
 coverImage: ''
 excerpt: ''

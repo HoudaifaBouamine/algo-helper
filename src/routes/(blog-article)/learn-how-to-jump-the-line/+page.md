@@ -1,6 +1,7 @@
 ---
-title: 'Week #01 - Problem #02 - Jump The Line'
 goal: Learn How To Jump The Line
+title: 'Week #01 - Problem #02 - Jump The Line'
+details: 'teach them how to print multiple lines'
 slug: learn-how-to-jump-the-line
 coverImage: ''
 excerpt: ''

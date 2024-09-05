@@ -1,6 +1,7 @@
 ---
-title: 'Week #01 - Problem #01 - Print text on the screen'
 goal: Learn how to print text on the screen
+title: 'Week #01 - Problem #01 - Print text on the screen'
+details: 'teach them how to print simple text on the screen'
 slug: learn-how-to-print-text-on-the-screen
 coverImage: ''
 excerpt: ''

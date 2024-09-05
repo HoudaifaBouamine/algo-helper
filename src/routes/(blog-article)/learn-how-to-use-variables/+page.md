@@ -1,6 +1,7 @@
 ---
-title: 'Week #01 - Problem #04 - Use variables'
 goal: Learn how to use variables
+title: 'Week #01 - Problem #04 - Use variables'
+details: 'teach them how to a single variable, for reading and printing'
 slug: learn-how-to-use-variables
 coverImage: ''
 excerpt: ''

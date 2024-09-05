@@ -1,6 +1,7 @@
 ---
-title: Algo Helper, for ESI-SBA students
 goal: Introduction to the Algo Helper
+title: Algo Helper, for ESI-SBA students
+details: 'overview about this project purpose'
 slug: algo-helper
 coverImage: ''
 excerpt: ''
